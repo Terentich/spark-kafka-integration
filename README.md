@@ -1,0 +1,13 @@
+Producer -> Kafka -> Consumer
+- Used avro serialization (version 1.8.2) for messages;
+- Kafka should store serialized entities;
+- Producer should generate or read prepared files by offsets with entities and send them to event hub; 
+- Producer should be based on Apache streaming;
+- Consumer also should be based on Apache streaming and reads messages from Kafka, deserializes them and write into a log;
+- For consumer create a mechanism for offsets storing (into MS sql) for each batch. And use the offsets from DB when the job is starting;
+- Use direct stream for both (Consumer and Producer);
+- Entity struct can be design by yourself. It should contains several fields such as List, org.joda.time.DateTime, long etc;
+- Write integration test for whole pipeline and check input pull of messages with out put messages pull;
+- Use logger (slf4j or alternative);
+- Extract all configs to external properties files;
+- Use maven.
